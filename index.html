@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+    <!-- Thẻ Meta chung -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NÂNG CAO HIỆU QUẢ TỰ HỌC VÀ TỰ ÔN TẬP MÔN TIN HỌC ỨNG DỤNG 12 (SÁCH CÁNH DIỀU) THEO CẤU TRÚC ĐỊNH DẠNG THI TỐT NGHIỆP THPT TỪ 2025.">
+    <meta name="keywords" content="tin học 12, tin học, ôn tập tin học,">
+    <meta name="author" content="Trường THPT Nguyễn Thượng Hiền">
+
+    <!-- Thẻ Meta cho Google -->
+    <title>Ôn tập Tin học</title>
+    <link rel="canonical" href="https://ontaptinhoc.kesug.com/" />
+    
+    <!-- Schema.org cho Google+ -->
+    <meta itemprop="name" content="Tiêu đề trang của bạn">
+    <meta itemprop="description" content="NÂNG CAO HIỆU QUẢ TỰ HỌC VÀ TỰ ÔN TẬP MÔN TIN HỌC ỨNG DỤNG 12 (SÁCH CÁNH DIỀU) THEO CẤU TRÚC ĐỊNH DẠNG THI TỐT NGHIỆP THPT TỪ 2025.">
+    <meta itemprop="image" content="https://ontaptinhoc.kesug.com/ggimage.jpg">
+
+    <!-- Thẻ Open Graph cho Facebook, LinkedIn -->
+    <meta property="og:site_name" content="Ôn tập Tin học - Trường THPT Nguyễn Thượng Hiền">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ôn tập Tin học">
+    <meta property="og:url" content="http://ontaptinhoc.kesug.com/">
+    <meta property="og:description" content="NÂNG CAO HIỆU QUẢ TỰ HỌC VÀ TỰ ÔN TẬP MÔN TIN HỌC ỨNG DỤNG 12 (SÁCH CÁNH DIỀU) THEO CẤU TRÚC ĐỊNH DẠNG THI TỐT NGHIỆP THPT TỪ 2025.">
+    <meta property="og:image" content="/fbimage.jpg">
+    <meta property="og:image:url" content="/fbimage.jpg">
+    <meta property="og:image:secure_url" content="/fbimage.jpg">
+
+    <!-- Favicons -->
+    <link rel="icon" href="https://ontaptinhoc.kesug.com/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://ontaptinhoc.kesug.com/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://ontaptinhoc.kesug.com/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://ontaptinhoc.kesug.com/favicon.png">
+   
+   <!-- css linked -->
+    <link rel="stylesheet" href="styles.css">
+   <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
+    <script>
+        const { Client } = Appwrite;
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-family:Roboto, sans-serif;">NÂNG CAO HIỆU QUẢ TỰ HỌC VÀ TỰ ÔN TẬP MÔN TIN HỌC ỨNG DỤNG 12 (SÁCH CÁNH DIỀU)</br>THEO CẤU TRÚC ĐỊNH DẠNG THI TỐT NGHIỆP THPT TỪ 2025.</h1>
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('hoc-sinh')">Hệ thống câu hỏi ôn tập</button>
+            <button class="tab-button" onclick="openTab('giao-vien')">Hệ thống video tự học</button>
+            <button class="tab-button" onclick="openTab('van-ban')">Các Văn Bản Chỉ Đạo</button>
+        </div>
+
+        <!-- Nội dung các tab -->
+        <div id="hoc-sinh" class="tab-content">
+            <div class="container">
+                <h2>Hệ thống câu hỏi ôn tập</h2>
+                <div id="hoc-sinh-container"></div>
+            </div>
+        </div>
+
+        <div id="giao-vien" class="tab-content" style="display: none;">
+            <div class="container">
+                <h2>Hệ thống video tự học</h2>
+                <div id="giao-vien-container"></div>
+            </div>
+        </div>
+
+        <div id="van-ban" class="tab-content" style="display: none;">
+            <div class="container">
+                <h2>Các Văn Bản Chỉ Đạo</h2>
+                <div id="van-ban-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+<footer>
+    <div class="footer-content container">
+        <p id="visit-count">Đang tải số lượt truy cập...</p>
+        <p>Bộ câu hỏi này xây dựng với mục đích giúp học sinh trên cả nước ôn tập môn Tin học 12 theo cấu trúc định dạng thi tốt nghiệp từ 2025 hoàn toàn miễn phí.</p>
+        <p>Chúc tất cả các học sinh trên cả nước đạt được kết quả cao trong các kì thi!</p>
+    </div>
+
+     <script>
+        const client = new Client();
+        // Kết nối tới Appwrite endpoint và project ID
+        client
+            .setEndpoint('https://cloud.appwrite.io/v1') // Endpoint Appwrite của bạn
+            .setProject('6739c3940001c90d2dfc') // Project ID của bạn
+
+        // Khởi tạo Database API
+        const database = new Appwrite.Databases(client);
+
+        const databaseId = '6739c5d90016d70ad8a8';
+        const collectionId = '6739dcdc0022a28c7910';
+        const documentId = '6739dd06002cdde557fa';
+
+        // Lấy số lượt truy cập từ Document
+        function getVisitCount() {
+            database.getDocument(databaseId, collectionId, documentId)
+                .then(response => {
+                    let visitCount = response.visitCount || 0;
+
+                    // Tăng số lượt truy cập
+                    visitCount++;
+
+                    // Cập nhật số lượt truy cập vào Document
+                    database.updateDocument(databaseId, collectionId, documentId, {
+                        visitCount: visitCount
+                    })
+                    .then(() => {
+                        // Hiển thị số lượt truy cập
+                        document.getElementById("visit-count").innerText = `Số lượt truy cập trang Web là ${visitCount} lượt.`;
+                    })
+                    .catch(error => {
+                        console.error("Lỗi khi cập nhật lượt truy cập:", error);
+                        document.getElementById("visit-count").innerText = "Lỗi cập nhật lượt truy cập.";
+                    });
+                })
+                .catch(error => {
+                    console.error("Lỗi khi lấy dữ liệu:", error);
+                    document.getElementById("visit-count").innerText = "Lỗi tải lượt truy cập.";
+                });
+        }
+
+        // Gọi hàm để lấy và cập nhật số lượt truy cập khi trang web được tải
+        window.onload = getVisitCount;
+    </script>
+
+</footer>
+</html>
